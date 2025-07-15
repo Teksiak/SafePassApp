@@ -1,4 +1,4 @@
 /* Entry point for all component stylesheets */
 @import "./signin.css";
 @import "./dashboard.css";
-@import "./entry.css";
+@import "./entries.css";

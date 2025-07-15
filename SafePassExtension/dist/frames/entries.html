@@ -1,39 +1,60 @@
 <turbo-frame id="app">
   <div data-controller="search">
-    <nav class="navbar navbar-expand border-bottom bg-white" data-controller="auth">
+    <nav
+      class="navbar navbar-expand border-bottom bg-white"
+      data-controller="auth"
+    >
       <div class="container-fluid d-flex">
         <a class="navbar-brand">
           <i class="bi bi-safe-fill"></i>
         </a>
 
-        <form data-action="submit->search#search:prevent" class="d-flex flex-grow-1" role="search">
+        <div class="d-flex flex-grow-1 position-relative" role="search">
           <input
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
-            data-action="input->search#search"
+            data-action="input->search#search input->search#toggleClearButton"
             data-search-target="input"
-          >
-          </input>
-        </form>
+          />
+          <div class="entry-search-button">
+            <button
+              class="btn btn-sm btn-outline-danger rounded-circle p-0 lh-1 me-2"
+              data-search-target="clearButton"
+              data-action="click->search#clearSearch"
+              hidden
+            >
+              <i class="bi bi-x"></i>
+            </button>
+            <button class="btn btn-sm btn-primary">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-person-circle"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li>
-                <h6 class="dropdown-header pb-0">
-                  Signed in as
-                </h6>
+                <h6 class="dropdown-header pb-0">Signed in as</h6>
               </li>
               <li>
-                <div data-search-target="email" class="p-3 pt-0">
-                </div>
+                <div data-search-target="email" class="p-3 pt-0"></div>
               </li>
               <li>
-                <button class="dropdown-item border-top" data-action="click->auth#signOut">
+                <button
+                  class="dropdown-item border-top"
+                  data-action="click->auth#signOut"
+                >
                   Sign Out
                 </button>
               </li>
@@ -43,10 +64,11 @@
       </div>
     </nav>
     <div class="dashboard" data-controller="entries">
-      <div class="dashboard__sidebar" data-entries-target="sidebar">
-      </div>
+      <div class="dashboard__sidebar" data-entries-target="sidebar"></div>
       <div class="dashboard__main" data-entries-target="main">
-        <div class="d-flex justify-content-center align-items-center w-100 h-100">
+        <div
+          class="d-flex justify-content-center align-items-center w-100 h-100"
+        >
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>

@@ -53,3 +53,12 @@
   width: 2.5rem;
   height: 2.5rem;
 }
+
+.entry-search-button {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.2rem;
+  align-items: center;
+}
