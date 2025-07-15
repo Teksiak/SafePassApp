@@ -1,1 +1,1 @@
-(()=>{})();
+(()=>{var r=e=>{for(let n of e){let t=document.querySelector(n);if(t)return t}return null},o=()=>r(['input[type="text"]','input[type="email"]','input[name*="email"]','input[name*="name"]','input[name="text"]','input[placeholder*="email"]','input[id*="email"]']),p=()=>r(['input[type="password"]','input[name*="password"]','input[placeholder*="password"]','input[id*="password"]']);var u=({username:e,password:n})=>{let t=o();t&&(t.value=e);let s=p();s&&(s.value=n)};chrome.runtime.onMessage.addListener(e=>{u(e)});})();
